@@ -1,11 +1,11 @@
-#h1 Artist Search 
+##Artist Search 
   (Kevin, LaTasha, Tanner)
 
-#h1 Application
+##h1 Application
 An application that displays events and links to music for an artist using the seat geek and Spotify APIs.  
 
 
-#h1 APIs
+#APIs
 Spotify
 Seat Geek
 
