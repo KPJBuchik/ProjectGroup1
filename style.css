@@ -1,0 +1,52 @@
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    text-align: center;
+    font-size: 50px;
+    background-color: maroon;
+    color: white;
+    padding: 50px 0px;
+}
+.container {
+    text-align: center;
+    flex: 1 0 auto;
+}
+#searched-artist {
+    text-align: left;
+}
+.events-label {
+    border-bottom: solid black 3px;
+    border-right: solid black 3px;
+}
+.links-label {
+    border-bottom: solid black 3px;
+    border-left: solid black 3px;
+}
+#events-results {
+    text-align: left;
+}
+#links-results {
+    text-align: left;
+}
+footer {
+    flex-shrink: 0;
+    background-color: #666666;
+    color: white;
+    text-align: center;
+    border-top: solid 6px maroon;
+    padding: 10px 0px;
+}
+.searched-artist {
+    font-weight: 900;
+    font-size: 3.5em;
+  }
+  
+.searched-artist .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
