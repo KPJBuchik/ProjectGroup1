@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html, body {
     height: 100%;
 }
@@ -41,3 +42,23 @@ footer {
     border-top: solid 6px maroon;
     padding: 10px 0px;
 }
+=======
+body {
+    padding: 20px;
+}
+#search-form, .form-control {
+    margin-bottom: 20px;
+}
+.cover {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    background-size: cover;
+}
+.cover:hover {
+    cursor: pointer;
+}
+.cover.playing {
+    border: 5px solid #e45343;
+}
+>>>>>>> e6250d265cd23fc3163d0b5d28de44a1e7dd7569
