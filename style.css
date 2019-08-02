@@ -41,6 +41,15 @@ footer {
     border-top: solid 6px maroon;
     padding: 10px 0px;
 }
+.searched-artist {
+    font-weight: 900;
+    font-size: 3.5em;
+  }
+  
+.searched-artist .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
 body {
     padding: 20px;
 }
