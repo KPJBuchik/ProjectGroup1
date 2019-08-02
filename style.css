@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 html, body {
     height: 100%;
 }
@@ -42,7 +41,6 @@ footer {
     border-top: solid 6px maroon;
     padding: 10px 0px;
 }
-=======
 body {
     padding: 20px;
 }
@@ -61,4 +59,3 @@ body {
 .cover.playing {
     border: 5px solid #e45343;
 }
->>>>>>> e6250d265cd23fc3163d0b5d28de44a1e7dd7569
