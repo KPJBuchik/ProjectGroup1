@@ -99,14 +99,18 @@ function searchSpotify() {
   
     }).then(function (response) {
   
-  
+        for(var i=0;i<5;i++){
+        
+        var eventname = $("<p>").text(response.events[i].title)
+       
+        $("#events-results").append(eventname)}
       console.log(response);
-      var eventName = $("#events-results").text(response.events[0].title)
-      var location = $("#location-results").text(response.events[0].venue.address)
-      var tickets = $("#ticket-results").attr("href",response.events[0].url)
-      var venue = $("venue-results").text(response.events[0].venue)    
+      //var eventName = $("#events-results").text(response.events[0].title)
+      //var location = $("#location-results").text(response.events[0].venue.display_location)
+      //var tickets = $("#ticket-results").attr("href",response.events[0].url)
+      //var venue = $("#venue-results").text(response.events[0].venue.name)    
       console.log(artistName)
-  
+        
       $("#list").append(eventName)
   
     })
