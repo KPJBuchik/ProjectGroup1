@@ -1,70 +1,60 @@
-html, body {
-    height: 100%;
+.container {    margin-top: 100px;
+    margin-right:0;   
+    text-align:center;
+    font-weight: bolder
 }
-body {
-    display: flex;
-    flex-direction: column;
+h1 {font-size:100px;
+text-align:center;
+text-shadow: 1px 1px #D2312D, 
+   2px 2px #D2312D, 
+   3px 3px #D2312D, 
+   4px 4px #D2312D, 
+   5px 5px #D2312D, 
+   6px 6px #D2312D;
+font-family:'Bangers', cursive;
+
 }
-.header {
-    text-align: center;
-    background-color: maroon;
-    color: white;
-    padding: 50px 0px;
-    font-family: Arial, Helvetica, sans-serif;
+
+.btn{background-color:#D2312D;
+border-style:none;
+color:black;
+
 }
-.container {
-    text-align: center;
-    flex: 1 0 auto;
+.btn:hover{background-color:#2DCED2;
+color:black;
+
 }
-#searched-artist {
-    text-align: left;
+
+body {background-color:#2DCED2;
+font-family:'Bangers', cursive;
+
+
 }
-.events-label {
-    border-bottom: solid black 3px;
-    border-right: solid black 3px;
+
+#textbox {
+
+margin-right: 0 auto;
+width: 40%;
+height: 40%;
+text-align: center;
+margin: 0 auto;
+background-color: inherit;
+
 }
-.links-label {
-    border-bottom: solid black 3px;
-    border-left: solid black 3px;
+.modal {padding:100px;
+font-weight: bolder;
+background-color:#D2312D;
+opacity:.8
 }
-#events-results {
-    text-align: left;
+
+
+img {margin-bottom: 5%;}
+
+
+#title {text-decoration: underline;
+
 }
-#links-results {
-    text-align: left;
-}
-footer {
-    flex-shrink: 0;
-    background-color: #666666;
-    color: white;
-    text-align: center;
-    border-top: solid 6px maroon;
-    padding: 10px 0px;
-}
-.searched-artist {
-    font-weight: 900;
-    font-size: 3.5em;
-  }
-  
-.searched-artist .letter {
-    display: inline-block;
-    line-height: 1em;
-  }
-body {
-    padding: 20px;
-}
-#search-form, .form-control {
-    margin-bottom: 20px;
-}
-.cover {
-    width: 300px;
-    height: 300px;
-    display: inline-block;
-    background-size: cover;
-}
-.cover:hover {
-    cursor: pointer;
-}
-.cover.playing {
-    border: 5px solid #e45343;
+
+#big-container{
+margin-top:100px;
 }
