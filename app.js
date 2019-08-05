@@ -1,6 +1,7 @@
 
 function searchSpotify() {
     var inputArtist = $("#inlineFormInput").val().trim();
+
     var accessToken = "BQAU-B7totK5w-u5Y7H4TmQDTM0puTNimkbLGDXVSBc4TtpJ3WS3Qmz_hubGgP2Fuqy1AuPSpC2PsR1GpR5gPL7UFzAIU1E0R3EOz7cryhMTpTQVOK-EkjrtZiGBHrQbIeWnijy6gi-TreQ"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
@@ -19,11 +20,7 @@ function searchSpotify() {
         console.log(imgURL)
         SearchTopTracks(response.artists.items[0].id)
 
-        if (inputArtist === 0){
-            $(".modal").modal("hide")
-    
-        }
-    
+     
 
     })
 }
@@ -54,24 +51,21 @@ function SearchTopTracks(id) {
 
     })
 }
-//
 $(".btn").on("click", function (event) {
+
     event.preventDefault();
-    searchSpotify();
-    searchSeatGeek();
-    $(".modal").modal("show")
+    
+    if ($("#inlineFormInput").val() !== ""){
+        searchSpotify();
+        searchSeatGeek();
+        $(".modal").modal("show");
+    }
+    
     $("#inlineFormInput").val("")
- 
-    // $(".modal").modal("hide")}
+  
 })
 
 
-
-// $(document).ready(function(){
-// $("#submitButton").click(function(){
-//  $("#myModal").modal();
-//});
-//});
 
 
 
@@ -79,7 +73,6 @@ function trackInfo(id) {
     var trackInformation = $("#inlineFormInput").val().trim();
     var accessToken = "BQAU-B7totK5w-u5Y7H4TmQDTM0puTNimkbLGDXVSBc4TtpJ3WS3Qmz_hubGgP2Fuqy1AuPSpC2PsR1GpR5gPL7UFzAIU1E0R3EOz7cryhMTpTQVOK-EkjrtZiGBHrQbIeWnijy6gi-TreQ"
 
-    // var queryUrl = "https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsNCbNl"
     var queryUrl = "https://api.spotify.com/v1/audio-features/" + id
     $.ajax({
         url: queryUrl,
@@ -91,7 +84,6 @@ function trackInfo(id) {
         console.log(response)
 
         if (response.danceability > 0.6) {
-            // var danceInfo = $("<p>")
             var danceInfo = $("#danceability").text("Can I dance to this?: Hell Yeah")
         }
         else if (response.danceability < 0.6)
