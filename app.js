@@ -52,11 +52,22 @@ function searchSpotify() {
     event.preventDefault();
     searchSpotify();
     searchSeatGeek();
+    $(".modal").modal("show")
     $("#inlineFormInput").val("")
-    //clear value
-    //clear modal 
+   
+   
   })
-  
+
+
+
+  if (("#inlineforminput").val() === 0 ){
+    $(".modal").modal("hide")}
+ // $(document).ready(function(){
+   // $("#submitButton").click(function(){
+      //  $("#myModal").modal();
+    //});
+//});
+
   
   
   function trackInfo(id) {

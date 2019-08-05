@@ -48,7 +48,9 @@ opacity:.8
 }
 
 
-img {margin-bottom: 5%;}
+img {margin-bottom: 5%;
+    height:250px;
+    width:250px;}
 
 
 #title {text-decoration: underline;

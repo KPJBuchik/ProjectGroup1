@@ -3,110 +3,97 @@
 ​
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  ​
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  ​
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    ​
     <link href="https://fonts.googleapis.com/css?family=Bangers|&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/78f23082a5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-  <link rel="stylesheet" type="text/css" href="style.css">
-
-  ​
+    ​
 </head>
 
 
 <body data-spy="scroll" data-target="#navbar-example">
-  </bodydata-spy>
-  <br>
-  <div id="big-container">
-    <h1>Get to The Gig</h1>
+    </bodydata-spy>
+    <br>
+    <div id="big-container">
+        <h1>Get to The Gig</h1>
 
-    <div class="container">
-      <form>
-        <div class="form-row align-items-center">
-          <div class="col-md-9">
-            <label class="sr-only" for="inlineFormInput">Name</label>
-            <input type="text" class="form-control mb-2" id="inlineFormInput"
-              placeholder="What artist(s) would you like to see?">
-          </div>
-          ​
-          <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-2" data-toggle="modal"
-              data-target=".bd-example-modal-lg">Search</button>
-          </div>
-        </div>
-      </form>
+        <div class="container">
+            <form>
+                <div class="form-row align-items-center">
+                    <div class="col-md-9">
+                        <label class="sr-only" for="inlineFormInput">Name</label>
+                        <input type="text" class="form-control mb-2" id="inlineFormInput"
+                            placeholder="What artist(s) would you like to see?">
+                    </div>
+                    ​
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2" >Search</button>
+                    </div>
+                </div>
+            </form>
 
-      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="row">
-              <div class="col events">
-                <h2 class="events-label"> <i class="fas fa-ticket-alt"></i>
-                  </h1>
-                  <p id="events-results"></p>
-                  <p id="location-results"></p>
-                  <p id="venue-results"></p>
-                  <a target="_blank" href="" id="ticket-results">Buy Tickets</a>
-                  <br>
-
-
-              </div>
-              <div class="col links">
-                <h2 class="music-label"><i class="fas fa-music"></i></h2>
-                <a target="_blank" id="links-results" href="">Open Spotify</a>
-                <br>
-                <hr>
-                <p id="title">Top Tracks</p>
-
-                <a target="_blank" id="track-results" href=""> </a>
-                <br>
-                <a target="_blank" id="track-results1" href=""> </a>
-                <br>
-                <a target="_blank" id="track-results2" href=""> </a>
-
-                <hr>
-                <p id="danceability">Can I Dance to This: </p>
-                <img id="image-results">
-                <br>
-
-                <iframe id="widget" src="https://open.spotify.com/embed/album/" width="300" height="80" frameborder="0"
-                  allowtransparency="true" allow="encrypted-media"></iframe>
-                <br>
-                <i class="fas fa-music"></i>
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col events">
+                                <h2 class="events-label"> <i class="fas fa-ticket-alt"></i>
+                                    </h1>
+                                    <p id="events-results"></p>
+                                    <p id="location-results"></p>
+                                    <p id="venue-results"></p>
+                                    <a target="_blank" href="" id="ticket-results">Buy Tickets</a>
+                                    <br>
 
 
-              </div>
+                            </div>
+                            <div class="col links">
+                                <h2 class="music-label"><i class="fas fa-music"></i></h2>
+                                <a target="_blank" id="links-results" href="">Open Spotify</a>
+                                <br>
+                                <hr>
+                                <p id="title">Top Tracks</p>
+
+                                <a target="_blank" id="track-results" href=""> </a>
+                                <br>
+                                <a target="_blank" id="track-results1" href=""> </a>
+                                <br>
+                                <a target="_blank" id="track-results2" href=""> </a>
+
+                                <hr>
+                                <p id="danceability">Can I Dance to This: </p>
+                                <img id="image-results">
+                                <br>
+
+                                <iframe id="widget" src="https://open.spotify.com/embed/album/" width="300" height="80"
+                                    frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                                <br>
+                                <i class="fas fa-music"></i>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+        <div id="textbox">Welcome to Get to the Gig! A search engine that provides you with upcoming events for your
+            favorite
+            artists and links to your favorite music.</div>
     </div>
-    <div id="textbox">Welcome to Get to the Gig! A search engine that provides you with upcoming events for your
-      favorite
-      artists and links to your favorite music.</div>
-  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </script>
+    <script src="https://kit.fontawesome.com/78f23082a5.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 ​
 ​
