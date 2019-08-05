@@ -1,6 +1,6 @@
 
 function searchSpotify() {
-    var inputArtist = $("#inlineFormInput").val().trim();
+    var inputArtist = $("#validationDefault01").val().trim();
 
     var accessToken = "BQAU-B7totK5w-u5Y7H4TmQDTM0puTNimkbLGDXVSBc4TtpJ3WS3Qmz_hubGgP2Fuqy1AuPSpC2PsR1GpR5gPL7UFzAIU1E0R3EOz7cryhMTpTQVOK-EkjrtZiGBHrQbIeWnijy6gi-TreQ"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
@@ -26,7 +26,7 @@ function searchSpotify() {
 }
 
 function SearchTopTracks(id) {
-    var topTracks = $("#inlineFormInput").val().trim();
+    var topTracks = $("#validationDefault01").val().trim();
     var accessToken = "BQAU-B7totK5w-u5Y7H4TmQDTM0puTNimkbLGDXVSBc4TtpJ3WS3Qmz_hubGgP2Fuqy1AuPSpC2PsR1GpR5gPL7UFzAIU1E0R3EOz7cryhMTpTQVOK-EkjrtZiGBHrQbIeWnijy6gi-TreQ"
 
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
@@ -55,13 +55,13 @@ $(".btn").on("click", function (event) {
 
     event.preventDefault();
     
-    if ($("#inlineFormInput").val() !== ""){
+    if ($("#validationDefault01").val() !== ""){
         searchSpotify();
         searchSeatGeek();
         $(".modal").modal("show");
     }
     
-    $("#inlineFormInput").val("")
+    $("#validationDefault01").val("")
   
 })
 
@@ -70,7 +70,7 @@ $(".btn").on("click", function (event) {
 
 
 function trackInfo(id) {
-    var trackInformation = $("#inlineFormInput").val().trim();
+    var trackInformation = $("#validationDefault01").val().trim();
     var accessToken = "BQAU-B7totK5w-u5Y7H4TmQDTM0puTNimkbLGDXVSBc4TtpJ3WS3Qmz_hubGgP2Fuqy1AuPSpC2PsR1GpR5gPL7UFzAIU1E0R3EOz7cryhMTpTQVOK-EkjrtZiGBHrQbIeWnijy6gi-TreQ"
 
     var queryUrl = "https://api.spotify.com/v1/audio-features/" + id
@@ -97,7 +97,7 @@ function trackInfo(id) {
     })
 }
 function searchSeatGeek() {
-    var inputArtist = $("#inlineFormInput").val().trim();
+    var inputArtist = $("#validationDefault01").val().trim();
 
     var queryUrl = "https://api.seatgeek.com/events?performers.slug=" + inputArtist + "&client_id=MTc3MjY2OTR8MTU2NDYwNTcxOC43MQ";
 
@@ -125,6 +125,26 @@ function searchSeatGeek() {
     })  
 }
 
+var textWrapper = document.querySelector('modal');
+textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: false})
+  .add({
+    targets: '.get-to-the-gig .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: function(el, i) {
+      return 70*i;
+    }
+  }).add({
+    targets: '.get-to-the-gig',
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
 
 
   //create the html elements in javascript
