@@ -1,4 +1,4 @@
-.container {  
+.container {    margin-top: 100px;
     margin-right:0;   
     text-align:center;
     font-weight: bolder
@@ -14,19 +14,17 @@ text-shadow: 1px 1px #D2312D,
 font-family:'Bangers', cursive;
 
 }
-.form-control {    
+.form-control {    width: 500px;
     box-shadow: 3px 5px #D2312D;
     font-family:helvetica;
     margin: 0 auto;}
 button {    width: 150px;}
-
-
-.btn  {background-color:#4BD5E7;
+.btn{background-color:#4BD5E7;
 border-style:none;
 color:black;
 box-shadow:1px 5px 5px #D2312D;
 padding-left: 0;
-margin-left: 0;
+margin-left: -160px;
 
 }
 .btn:hover{background-color:#4BD5E7;
@@ -40,7 +38,7 @@ box-shadow:1px 5px  #4BD5E7;
 
 body {background-color:#2DCED2;
 font-family:'Bangers', cursive;
-max-width:1533px;
+
 
 }
 
@@ -58,8 +56,7 @@ background-color: inherit;
 font-weight: bolder;
 background-color:#DB5A57;
 opacity:.9;
-font-family: 'Patua One', cursive;
-
+font-family: 'Oleo Script', cursive;
 
 }
 
@@ -105,17 +102,3 @@ text-align:center;
         color:white;
         text-decoration-color: white;}
 
-@media screen and (max-width:812) {
-    button{
-        margin:0 auto;
-
-        
-    }}  
-@media screen and (max-width:600px){
-
-button{
-    margin:0 auto;
-
-
-};
-}
