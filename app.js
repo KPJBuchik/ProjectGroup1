@@ -126,7 +126,7 @@ function searchSeatGeek() {
             let atSign = $("<p>").text("@")
             let locationDisplay = $("<p>").text(results.venue.display_location)
             let venueDisplay = $("<p>").text(results.venue.name)
-            let ticketDisplay = $("<a>").attr("href", response.events[0].url)
+            let ticketDisplay = $("<a>").attr("href", response.events[i].url)
             ticketDisplay.text("Buy Tickets")
 
             eventDiv.append(eventDisplay);
