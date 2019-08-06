@@ -2,7 +2,7 @@
 function searchSpotify() {
     var inputArtist = $("#validationDefault01").val().trim();
 
-    var accessToken = "BQADTPpfQpppSuRY6ieU7vMcWiKYwUcVG5bpmcmrLX71sBFTgILICXX2x_igQ2aWW_j7VODV9eabL2MCbHHJc4-1-8TmLCoEm_J7YZpIicDfGn1RHGf1N_cHirOxgMoBcWtFho5ckg5qZHc"
+    var accessToken = "BQDCD_JNG_Su7UF4XxE7NawEYrF7CdzkKCmiI8BX-zTWBB39PKTpvA981TNcDByMBQqvenFbmdKcyJhEWgz7h35L8yKpPypzZgFXEZEutTD3QMOGgjFz9eXJLfYbNf99-toTSwZee30Eq2k"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -19,15 +19,12 @@ function searchSpotify() {
         var imgURL = $("#image-results").attr("src", response.artists.items[0].images[1].url)
         console.log(imgURL)
         SearchTopTracks(response.artists.items[0].id)
-
-
-
     })
 }
 
 function SearchTopTracks(id) {
     var topTracks = $("#validationDefault01").val().trim();
-    var accessToken = "BQADTPpfQpppSuRY6ieU7vMcWiKYwUcVG5bpmcmrLX71sBFTgILICXX2x_igQ2aWW_j7VODV9eabL2MCbHHJc4-1-8TmLCoEm_J7YZpIicDfGn1RHGf1N_cHirOxgMoBcWtFho5ckg5qZHc"
+    var accessToken = "BQDCD_JNG_Su7UF4XxE7NawEYrF7CdzkKCmiI8BX-zTWBB39PKTpvA981TNcDByMBQqvenFbmdKcyJhEWgz7h35L8yKpPypzZgFXEZEutTD3QMOGgjFz9eXJLfYbNf99-toTSwZee30Eq2k"
 
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
@@ -52,7 +49,7 @@ function SearchTopTracks(id) {
     })
 }
 $(".btn").on("click", function (event) {
-    
+
 
     event.preventDefault();
     $(".events-results").empty();
@@ -64,7 +61,7 @@ $(".btn").on("click", function (event) {
         $("#alert").text("")
 
     }
-    
+
 
     $("#validationDefault01").val("")
 
@@ -75,7 +72,7 @@ $(".btn").on("click", function (event) {
 
 function trackInfo(id) {
     var trackInformation = $("#validationDefault01").val().trim();
-    var accessToken = "BQADTPpfQpppSuRY6ieU7vMcWiKYwUcVG5bpmcmrLX71sBFTgILICXX2x_igQ2aWW_j7VODV9eabL2MCbHHJc4-1-8TmLCoEm_J7YZpIicDfGn1RHGf1N_cHirOxgMoBcWtFho5ckg5qZHc"
+    var accessToken = "BQDCD_JNG_Su7UF4XxE7NawEYrF7CdzkKCmiI8BX-zTWBB39PKTpvA981TNcDByMBQqvenFbmdKcyJhEWgz7h35L8yKpPypzZgFXEZEutTD3QMOGgjFz9eXJLfYbNf99-toTSwZee30Eq2k"
 
     var queryUrl = "https://api.spotify.com/v1/audio-features/" + id
     $.ajax({
@@ -99,11 +96,11 @@ function trackInfo(id) {
         else if (response.loudness > -9)
             $("#loudness").text("Bring Earplugs?: Nah, You're Good");
 
-        if (response.energy > .5){
+        if (response.energy > .5) {
             $("#energy").text("Will the Show be Boring?: No they rock!");
         }
         else if (response.energy < .5)
-        $("#energy").text("Will the Show be Boring?: Maybe stay home");
+            $("#energy").text("Will the Show be Boring?: Maybe stay home");
 
     })
 }
@@ -119,50 +116,27 @@ function searchSeatGeek() {
     }).then(function (response) {
         console.log(response);
 
-        for (var i=0;i<5;i++){
-        let results=response.events[i]
-        let eventDiv=$("<div>")
-        let eventDisplay=$("<h3>").text(results.title)
-        let atSign=$("<p>").text("@")
-        let locationDisplay=$("<p>").text(results.venue.display_location)
-        let venueDisplay=$("<p>").text(results.venue.name)
-        let ticketDisplay=$("<a>").attr("href", response.events[0].url)
-        ticketDisplay.text("Buy Tickets")
-        
-        eventDiv.append(eventDisplay);
-        eventDiv.append(atSign)
-        eventDiv.append(locationDisplay);
-        eventDiv.append(venueDisplay);
-        eventDiv.append(ticketDisplay);
-        eventDiv.append("<hr>");
-        $(".events-results").append(eventDiv)
-        
+        for (var i = 0; i < 5; i++) {
+            let results = response.events[i]
+            let eventDiv = $("<div>")
+            let eventDisplay = $("<h3>").text(results.title)
+            let atSign = $("<p>").text("@")
+            let locationDisplay = $("<p>").text(results.venue.display_location)
+            let venueDisplay = $("<p>").text(results.venue.name)
+            let ticketDisplay = $("<a target='_blank'>").attr("href", response.events[i].url)
+            ticketDisplay.text("Buy Tickets")
+
+            eventDiv.append(eventDisplay);
+            eventDiv.append(atSign)
+            eventDiv.append(locationDisplay);
+            eventDiv.append(venueDisplay);
+            eventDiv.append(ticketDisplay);
+            eventDiv.append("<hr>");
+            $(".events-results").append(eventDiv)
+
         }
 
-        if (results===""){
-        $(".events-results").text("Sorry")}
-        /*
-        $("#events-results").text(response.events[0].title)
-        $("#location-results").text(response.events[0].venue.display_location)
-        $("#ticket-results").attr("href", response.events[0].url)
-        $("#ticket-results").text("Buy Tickets")
-
-        $("#venue-results").text(response.events[0].venue.name)
-
-        $("#events-results1").text(response.events[1].title)
-        $("#location-results1").text(response.events[1].venue.display_location)
-        $("#ticket-results1").attr("href", response.events[1].url)
-        $("#ticket-results1").text("Buy Tickets")
-        $("#venue-results1").text(response.events[1].venue.name)
-
-        $("#events-results2").text(response.events[2].title)
-        $("#location-results2").text(response.events[2].venue.display_location)
-        $("#ticket-results2").attr("href", response.events[2].url)
-        $("#ticket-results2").text("Buy Tickets")
-        $("#venue-results2").text(response.events[2].venue.name)
-
-        */
-
+  
 
     })
 }
@@ -190,8 +164,3 @@ $(".btn").on("click", function (event) {
         });
 
 })
-  //create the html elements in javascript
-  //add authorization?
-  //mark attending?
-  //play with the webplayback 
-  //return speeds up animation
