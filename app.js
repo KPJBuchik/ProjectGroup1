@@ -2,7 +2,7 @@
 function searchSpotify() {
     var inputArtist = $("#validationDefault01").val().trim();
 
-    var accessToken = "BQABM22ZuUFO5_77Jtp1KRTijhiPdlw9MmmIs4GoXJ5fkUr-WldquyT1M_-P-tULG-LpHyfvOI7Buah62HPnyVjZ8EkqzhBwH4U3x7pnsqEzccXa8abV4rqqTzfqehReyr368GkHNOr5ke0"
+    var accessToken = "BQDCD_JNG_Su7UF4XxE7NawEYrF7CdzkKCmiI8BX-zTWBB39PKTpvA981TNcDByMBQqvenFbmdKcyJhEWgz7h35L8yKpPypzZgFXEZEutTD3QMOGgjFz9eXJLfYbNf99-toTSwZee30Eq2k"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -19,15 +19,12 @@ function searchSpotify() {
         var imgURL = $("#image-results").attr("src", response.artists.items[0].images[1].url)
         console.log(imgURL)
         SearchTopTracks(response.artists.items[0].id)
-
-
-
     })
 }
 
 function SearchTopTracks(id) {
     var topTracks = $("#validationDefault01").val().trim();
-    var accessToken = "BQABM22ZuUFO5_77Jtp1KRTijhiPdlw9MmmIs4GoXJ5fkUr-WldquyT1M_-P-tULG-LpHyfvOI7Buah62HPnyVjZ8EkqzhBwH4U3x7pnsqEzccXa8abV4rqqTzfqehReyr368GkHNOr5ke0"
+    var accessToken = "BQDCD_JNG_Su7UF4XxE7NawEYrF7CdzkKCmiI8BX-zTWBB39PKTpvA981TNcDByMBQqvenFbmdKcyJhEWgz7h35L8yKpPypzZgFXEZEutTD3QMOGgjFz9eXJLfYbNf99-toTSwZee30Eq2k"
 
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
@@ -75,7 +72,7 @@ $(".btn").on("click", function (event) {
 
 function trackInfo(id) {
     var trackInformation = $("#validationDefault01").val().trim();
-    var accessToken = "BQABM22ZuUFO5_77Jtp1KRTijhiPdlw9MmmIs4GoXJ5fkUr-WldquyT1M_-P-tULG-LpHyfvOI7Buah62HPnyVjZ8EkqzhBwH4U3x7pnsqEzccXa8abV4rqqTzfqehReyr368GkHNOr5ke0"
+    var accessToken = "BQDCD_JNG_Su7UF4XxE7NawEYrF7CdzkKCmiI8BX-zTWBB39PKTpvA981TNcDByMBQqvenFbmdKcyJhEWgz7h35L8yKpPypzZgFXEZEutTD3QMOGgjFz9eXJLfYbNf99-toTSwZee30Eq2k"
 
     var queryUrl = "https://api.spotify.com/v1/audio-features/" + id
     $.ajax({
@@ -126,7 +123,7 @@ function searchSeatGeek() {
             let atSign = $("<p>").text("@")
             let locationDisplay = $("<p>").text(results.venue.display_location)
             let venueDisplay = $("<p>").text(results.venue.name)
-            let ticketDisplay = $("<a>").attr("href", response.events[i].url)
+            let ticketDisplay = $("<a target='_blank'>").attr("href", response.events[i].url)
             ticketDisplay.text("Buy Tickets")
 
             eventDiv.append(eventDisplay);
@@ -139,10 +136,7 @@ function searchSeatGeek() {
 
         }
 
-        if (results === "") {
-            $(".events-results").text("Sorry")
-        }
-
+  
 
     })
 }
