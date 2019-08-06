@@ -1,4 +1,4 @@
-.container {    margin-top: 100px;
+.container {  
     margin-right:0;   
     text-align:center;
     font-weight: bolder
@@ -19,7 +19,9 @@ font-family:'Bangers', cursive;
     font-family:helvetica;
     margin: 0 auto;}
 button {    width: 150px;}
-.btn{background-color:#4BD5E7;
+
+
+.btn  {background-color:#4BD5E7;
 border-style:none;
 color:black;
 box-shadow:1px 5px 5px #D2312D;
@@ -38,7 +40,7 @@ box-shadow:1px 5px  #4BD5E7;
 
 body {background-color:#2DCED2;
 font-family:'Bangers', cursive;
-
+max-width:1533px;
 
 }
 
