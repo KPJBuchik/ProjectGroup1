@@ -2,7 +2,7 @@
 function searchSpotify() {
     var inputArtist = $("#validationDefault01").val().trim();
 
-    var accessToken = "BQAU-B7totK5w-u5Y7H4TmQDTM0puTNimkbLGDXVSBc4TtpJ3WS3Qmz_hubGgP2Fuqy1AuPSpC2PsR1GpR5gPL7UFzAIU1E0R3EOz7cryhMTpTQVOK-EkjrtZiGBHrQbIeWnijy6gi-TreQ"
+    var accessToken = "BQAyiRq28pFTv63WcAj7qw6fmSIhvyXtg4Kpp02Rgd3miEeMx5UNzUCqqEwrL5NCDc1-0ZDBNJVzsDicAx3G5sZCcYAkbRImyilEMB2tZgljbpQWGc70AGaVZu26VC_QWpfUfxskDNXsSC8"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -13,21 +13,21 @@ function searchSpotify() {
     }).then(function (response) {
         console.log(response)
 
-        var artistName = $("#links-results").attr("href", response.artists.items[0]
+        $("#links-results").attr("href", response.artists.items[0]
             .external_urls.spotify)
         $("#links-results").text(response.artists.items[0].name)
         var imgURL = $("#image-results").attr("src", response.artists.items[0].images[1].url)
         console.log(imgURL)
         SearchTopTracks(response.artists.items[0].id)
 
-     
+
 
     })
 }
 
 function SearchTopTracks(id) {
     var topTracks = $("#validationDefault01").val().trim();
-    var accessToken = "BQAU-B7totK5w-u5Y7H4TmQDTM0puTNimkbLGDXVSBc4TtpJ3WS3Qmz_hubGgP2Fuqy1AuPSpC2PsR1GpR5gPL7UFzAIU1E0R3EOz7cryhMTpTQVOK-EkjrtZiGBHrQbIeWnijy6gi-TreQ"
+    var accessToken = "BQAyiRq28pFTv63WcAj7qw6fmSIhvyXtg4Kpp02Rgd3miEeMx5UNzUCqqEwrL5NCDc1-0ZDBNJVzsDicAx3G5sZCcYAkbRImyilEMB2tZgljbpQWGc70AGaVZu26VC_QWpfUfxskDNXsSC8"
 
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
@@ -52,26 +52,29 @@ function SearchTopTracks(id) {
     })
 }
 $(".btn").on("click", function (event) {
+    
 
     event.preventDefault();
-    
-    if ($("#validationDefault01").val() !== ""){
+    $("#alert").text("type an artist into the search bar")
+    if ($("#validationDefault01").val() !== "") {
         searchSpotify();
         searchSeatGeek();
         $(".modal").modal("show");
-    }
-    
-    $("#validationDefault01").val("")
-  
-})
+        $("#alert").text("")
 
+    }
+
+
+    $("#validationDefault01").val("")
+
+})
 
 
 
 
 function trackInfo(id) {
     var trackInformation = $("#validationDefault01").val().trim();
-    var accessToken = "BQAU-B7totK5w-u5Y7H4TmQDTM0puTNimkbLGDXVSBc4TtpJ3WS3Qmz_hubGgP2Fuqy1AuPSpC2PsR1GpR5gPL7UFzAIU1E0R3EOz7cryhMTpTQVOK-EkjrtZiGBHrQbIeWnijy6gi-TreQ"
+    var accessToken = "BQAyiRq28pFTv63WcAj7qw6fmSIhvyXtg4Kpp02Rgd3miEeMx5UNzUCqqEwrL5NCDc1-0ZDBNJVzsDicAx3G5sZCcYAkbRImyilEMB2tZgljbpQWGc70AGaVZu26VC_QWpfUfxskDNXsSC8"
 
     var queryUrl = "https://api.spotify.com/v1/audio-features/" + id
     $.ajax({
@@ -84,15 +87,22 @@ function trackInfo(id) {
         console.log(response)
 
         if (response.danceability > 0.6) {
-            var danceInfo = $("#danceability").text("Can I dance to this?: Hell Yeah")
+            $("#danceability").text("Can I dance to this?: Oh Yeah");
         }
         else if (response.danceability < 0.6)
-            $("#danceability").text("Can I dance to this?: No Way")
-        console.log(danceInfo)
+            $("#danceability").text("Can I dance to this?: No Way");
 
+        if (response.loudness < -9) {
+            $("#loudness").text("Bring Earplugs?: Definitely");
+        }
+        else if (response.loudness > -9)
+            $("#loudness").text("Bring Earplugs?: Nah, You're Good");
 
-
-
+        if (response.energy > .5){
+            $("#energy").text("Will the Show be Boring?: No they rock!");
+        }
+        else if (response.energy < .5)
+        $("#energy").text("Will the Show be Boring?: Maybe stay home");
 
     })
 }
@@ -107,46 +117,74 @@ function searchSeatGeek() {
 
     }).then(function (response) {
         console.log(response);
+
+        for (var i=0;i<5;i++){
+        let results=response.events[i]
+        let eventDiv=$("<div>")
+        let eventDisplay=$("<p>").text(results.title)
+        let locationDisplay=$("<p>").text(results.venue.display_location)
+        let venueDisplay=$("<p>").text(results.venue.name)
+        let ticketDisplay=$("<a>").attr("href", response.events[0].url)
+        ticketDisplay.text("Buy Tickets")
+        
+        
+        eventDiv.append(eventDisplay);
+        eventDiv.append(locationDisplay);
+        eventDiv.append(venueDisplay);
+        eventDiv.append(ticketDisplay);
+        eventDiv.append("<hr>");
+        $(".events-results").append(eventDiv)
+
+        }
+        /*
         $("#events-results").text(response.events[0].title)
         $("#location-results").text(response.events[0].venue.display_location)
         $("#ticket-results").attr("href", response.events[0].url)
+        $("#ticket-results").text("Buy Tickets")
+
         $("#venue-results").text(response.events[0].venue.name)
 
         $("#events-results1").text(response.events[1].title)
         $("#location-results1").text(response.events[1].venue.display_location)
         $("#ticket-results1").attr("href", response.events[1].url)
+        $("#ticket-results1").text("Buy Tickets")
         $("#venue-results1").text(response.events[1].venue.name)
 
         $("#events-results2").text(response.events[2].title)
         $("#location-results2").text(response.events[2].venue.display_location)
         $("#ticket-results2").attr("href", response.events[2].url)
+        $("#ticket-results2").text("Buy Tickets")
         $("#venue-results2").text(response.events[2].venue.name)
 
-    })  
+        */
+
+
+    })
 }
+$(".btn").on("click", function (event) {
+    event.preventDefault();
+    var textWrapper = document.querySelector('#alert');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
 
-var textWrapper = document.querySelector('modal');
-textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+    anime.timeline({ loop: false })
+        .add({
+            targets: '#alert .letter',
+            scale: [4, 1],
+            opacity: [0, 1],
+            translateZ: 0,
+            easing: "easeOutExpo",
+            duration: 950,
+            delay: function (el, i) {
+                return 70 * i;
+            }
+        }).add({
+            targets: '#alert',
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000,
+        });
 
-anime.timeline({loop: false})
-  .add({
-    targets: '.get-to-the-gig .letter',
-    scale: [4,1],
-    opacity: [0,1],
-    translateZ: 0,
-    easing: "easeOutExpo",
-    duration: 950,
-    delay: function(el, i) {
-      return 70*i;
-    }
-  }).add({
-    targets: '.get-to-the-gig',
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  });
-
-
+})
   //create the html elements in javascript
   //add authorization?
   //mark attending?

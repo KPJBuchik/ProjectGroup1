@@ -14,14 +14,24 @@ text-shadow: 1px 1px #D2312D,
 font-family:'Bangers', cursive;
 
 }
-
-.btn{background-color:#D2312D;
+.form-control {    width: 500px;
+    box-shadow: 3px 5px #D2312D;
+    font-family:helvetica;
+    margin: 0 auto;}
+button {    width: 150px;
+    margin-left: -170px;}
+.btn{background-color:#4BD5E7;
 border-style:none;
 color:black;
+box-shadow:1px 5px 5px #D2312D;
 
 }
-.btn:hover{background-color:#2DCED2;
-color:black;
+.btn:hover{background-color:#4BD5E7;
+color:white;
+box-shadow:1px 5px  #4BD5E7;
+
+}
+.btn:enabled{background-color:#D2312D
 
 }
 
@@ -43,7 +53,7 @@ background-color: inherit;
 }
 .modal {padding:100px;
 font-weight: bolder;
-background-color:#D2312D;
+background-color:#DB5A57;
 opacity:.8
 }
 
@@ -64,3 +74,12 @@ margin-top:100px;
 .get-to-the-gig .letter {
     display: inline-block;
     }
+
+#alert {
+color:red;
+text-align:center;
+
+
+}
+
+

@@ -33,7 +33,7 @@
                     </div>
                     ​
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                        <button type="submit" class="btn btn-primary mb-2"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </form>
@@ -46,27 +46,29 @@
                             <div class="col events">
                                 <h2 class="events-label"> <i class="fas fa-ticket-alt"></i>
                                     </h1>
-                                    <p id="events-results"></p>
+                                    <p class="events-results"></p>
                                     <p id="location-results"></p>
                                     <p id="venue-results"></p>
-                                    <a target="_blank" href="" id="ticket-results">Buy Tickets</a>
-                                    <br>
+                                    <a target="_blank" href="" id="ticket-results"></a>
+                                    <hr>
                                     <p id="events-results1"></p>
                                     <p id="location-results1"></p>
                                     <p id="venue-results1"></p>
-                                    <a target="_blank" href="" id="ticket-results1">Buy Tickets</a>
-                                    <br>
+                                    <a target="_blank" href="" id="ticket-results1"></a>
+                                    <hr>
                                     <p id="events-results2"></p>
                                     <p id="location-results2"></p>
                                     <p id="venue-results2"></p>
-                                    <a target="_blank" href="" id="ticket-results2">Buy Tickets</a>
-
+                                    <a target="_blank" href="" id="ticket-results2"></a>
+                                    <br>
+                                    <i class="fas fa-ticket-alt"></i>
 
                             </div>
                             <div class="col links">
                                 <h2 class="music-label"><i class="fas fa-music"></i></h2>
-                                <a target="_blank" id="links-results" href="">Open Spotify</a>
+                                <a target="_blank" id="links-results" href=""></a>
                                 <br>
+                                <img id="image-results">
                                 <hr>
                                 <p id="title">Top Tracks</p>
 
@@ -77,9 +79,9 @@
                                 <a target="_blank" id="track-results2" href=""> </a>
 
                                 <hr>
-                                <p id="danceability">Can I Dance to This: </p>
-                                <img id="image-results">
-                                <br>
+                                <p id="danceability"></p>
+                                <p id="loudness"></p>
+                                <p id="energy"></p>
 
                                 <iframe id="widget" src="https://open.spotify.com/embed/album/" width="300" height="80"
                                     frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -93,6 +95,7 @@
                 </div>
             </div>
         </div>
+        <p id="alert"></p>
         <div id="textbox">Welcome to Get to the Gig! A search engine that provides you with upcoming events for your
             favorite
             artists and links to your favorite music.</div>
