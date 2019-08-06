@@ -2,7 +2,7 @@
 function searchSpotify() {
     var inputArtist = $("#validationDefault01").val().trim();
 
-    var accessToken = "BQAyiRq28pFTv63WcAj7qw6fmSIhvyXtg4Kpp02Rgd3miEeMx5UNzUCqqEwrL5NCDc1-0ZDBNJVzsDicAx3G5sZCcYAkbRImyilEMB2tZgljbpQWGc70AGaVZu26VC_QWpfUfxskDNXsSC8"
+    var accessToken = "BQADTPpfQpppSuRY6ieU7vMcWiKYwUcVG5bpmcmrLX71sBFTgILICXX2x_igQ2aWW_j7VODV9eabL2MCbHHJc4-1-8TmLCoEm_J7YZpIicDfGn1RHGf1N_cHirOxgMoBcWtFho5ckg5qZHc"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -27,7 +27,7 @@ function searchSpotify() {
 
 function SearchTopTracks(id) {
     var topTracks = $("#validationDefault01").val().trim();
-    var accessToken = "BQAyiRq28pFTv63WcAj7qw6fmSIhvyXtg4Kpp02Rgd3miEeMx5UNzUCqqEwrL5NCDc1-0ZDBNJVzsDicAx3G5sZCcYAkbRImyilEMB2tZgljbpQWGc70AGaVZu26VC_QWpfUfxskDNXsSC8"
+    var accessToken = "BQADTPpfQpppSuRY6ieU7vMcWiKYwUcVG5bpmcmrLX71sBFTgILICXX2x_igQ2aWW_j7VODV9eabL2MCbHHJc4-1-8TmLCoEm_J7YZpIicDfGn1RHGf1N_cHirOxgMoBcWtFho5ckg5qZHc"
 
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
@@ -55,7 +55,8 @@ $(".btn").on("click", function (event) {
     
 
     event.preventDefault();
-    $("#alert").text("type an artist into the search bar")
+    $(".events-results").empty();
+    $("#alert").text("please type an artist into the search bar")
     if ($("#validationDefault01").val() !== "") {
         searchSpotify();
         searchSeatGeek();
@@ -63,7 +64,7 @@ $(".btn").on("click", function (event) {
         $("#alert").text("")
 
     }
-
+    
 
     $("#validationDefault01").val("")
 
@@ -74,7 +75,7 @@ $(".btn").on("click", function (event) {
 
 function trackInfo(id) {
     var trackInformation = $("#validationDefault01").val().trim();
-    var accessToken = "BQAyiRq28pFTv63WcAj7qw6fmSIhvyXtg4Kpp02Rgd3miEeMx5UNzUCqqEwrL5NCDc1-0ZDBNJVzsDicAx3G5sZCcYAkbRImyilEMB2tZgljbpQWGc70AGaVZu26VC_QWpfUfxskDNXsSC8"
+    var accessToken = "BQADTPpfQpppSuRY6ieU7vMcWiKYwUcVG5bpmcmrLX71sBFTgILICXX2x_igQ2aWW_j7VODV9eabL2MCbHHJc4-1-8TmLCoEm_J7YZpIicDfGn1RHGf1N_cHirOxgMoBcWtFho5ckg5qZHc"
 
     var queryUrl = "https://api.spotify.com/v1/audio-features/" + id
     $.ajax({
@@ -121,21 +122,25 @@ function searchSeatGeek() {
         for (var i=0;i<5;i++){
         let results=response.events[i]
         let eventDiv=$("<div>")
-        let eventDisplay=$("<p>").text(results.title)
+        let eventDisplay=$("<h3>").text(results.title)
+        let atSign=$("<p>").text("@")
         let locationDisplay=$("<p>").text(results.venue.display_location)
         let venueDisplay=$("<p>").text(results.venue.name)
         let ticketDisplay=$("<a>").attr("href", response.events[0].url)
         ticketDisplay.text("Buy Tickets")
         
-        
         eventDiv.append(eventDisplay);
+        eventDiv.append(atSign)
         eventDiv.append(locationDisplay);
         eventDiv.append(venueDisplay);
         eventDiv.append(ticketDisplay);
         eventDiv.append("<hr>");
         $(".events-results").append(eventDiv)
-
+        
         }
+
+        if (results===""){
+        $(".events-results").text("Sorry")}
         /*
         $("#events-results").text(response.events[0].title)
         $("#location-results").text(response.events[0].venue.display_location)
@@ -189,3 +194,4 @@ $(".btn").on("click", function (event) {
   //add authorization?
   //mark attending?
   //play with the webplayback 
+  //return speeds up animation
